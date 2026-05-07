@@ -62,7 +62,7 @@ def process_reviews(folder_paths):
     df_filtered = df[df['comment'].str.strip() != ""].copy()
 
     # 3. Xuất file CSV
-    output_name = "reviews_output.csv"
+    output_name = r"shopee_crawl_prj\reviews_output.csv"
     df_filtered.to_csv(output_name, index=False, encoding='utf-8-sig')
 
     # 4. Hiển thị Terminal
