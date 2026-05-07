@@ -11,9 +11,20 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__)) # Thư mục 'code'
 BASE_DIR = os.path.dirname(CURRENT_DIR)                 # Thư mục 'shopee_crawl_prj'
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────
-URLS_FILE = os.path.join(BASE_DIR, "urls", "urls_1044352529.txt")
-CHECKPOINT_FILE = os.path.join(BASE_DIR, "checkpoint", "checkpoint_1044352529.json")
-OUTPUT_DIR = os.path.join(BASE_DIR, "reviews_data")
+SHOPID = '131195741'
+
+# 1. URLS_FILE: urls/urls_shopid.txt
+URLS_PATH = os.path.join(BASE_DIR, "urls")
+os.makedirs(URLS_PATH, exist_ok=True) # Đảm bảo thư mục urls tồn tại
+URLS_FILE = os.path.join(URLS_PATH, f"urls_{SHOPID}.txt")
+
+# 2. CHECKPOINT_FILE: checkpoint/checkpoint_shopid.json
+CHECKPOINT_PATH = os.path.join(BASE_DIR, "checkpoint")
+os.makedirs(CHECKPOINT_PATH, exist_ok=True)
+CHECKPOINT_FILE = os.path.join(CHECKPOINT_PATH, f"checkpoint_{SHOPID}.json")
+
+# 3. OUTPUT_DIR: reviews_data/shopid/
+OUTPUT_DIR = os.path.join(BASE_DIR, "reviews_data", str(SHOPID))
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # ── KHỞI TẠO BROWSER ───────────────────────────────────────────────────────
